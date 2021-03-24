@@ -42,7 +42,7 @@ Feature: Tests for home screen functionality
              Then I see "Temperature" as a current unit converter
              Then Left unit picker value should be "Celsius"
               And right unit picker value should be "Fahrenheit"
-        
+
 
         Scenario Outline: User able to select values from unit pickers
              When I select "<unit_type>" from left unit picker
@@ -51,9 +51,9 @@ Feature: Tests for home screen functionality
 
         Examples:
                   | unit_type | amount | result  |
-                  | Inch      | 1      | 2.54    |
-                  | Link      | 1      | 20.1168 |
-                  | Kilometer | 1      | 100 000 |
+                  | Inch1      | 1      | 2.54    |
+                  | Link1      | 1      | 20.1168 |
+                  | Kilometer1 | 1      | 100 000 |
 
         
         Scenario: User able to convert values
@@ -63,10 +63,25 @@ Feature: Tests for home screen functionality
               And I type "1" on application keyboard
              Then I should see result as "15.1416"
 
-        @wip
+
         Scenario: User able to switch values
           And Left unit picker value should be "Foot"
           And right unit picker value should be "Centimeter"
           When I press on switch units button
           Then Left unit picker value should be "Centimeter"
           And right unit picker value should be "Foot"
+
+        @wip
+        Scenario: User able to cleanup conversion history
+          When I press on Menu icon
+          And I select "History" from menu
+          Then I see "History" as a current unit converter
+          And I should see text "No history right now"
+          When I press on Menu icon
+          And I select "Length" from menu
+          And I type "1" on application keyboard
+          When I press on Menu icon
+          And I select "History" from menu
+          And I verify that 1 st result in history list is "Length"
+          When I press delete from history at 1 st row
+          Then I should see text "No history right now"
