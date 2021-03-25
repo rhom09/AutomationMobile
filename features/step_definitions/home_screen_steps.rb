@@ -85,6 +85,7 @@ end
 
 When('I press return button on soft keyboard') do
   # sleep 3
+  binding.pry
   Appium::TouchAction.new.tap(x: 0.99, y: 0.99, count: 1).perform
 end
 

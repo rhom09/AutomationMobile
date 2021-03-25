@@ -15,7 +15,7 @@ Feature: Tests for home screen functionality
              When I type "1" on application keyboard
              Then Show all button should be enabled
 
-        @conversions
+
         Scenario Outline: Verify default conversion
              When I type "<target>" on application keyboard
              Then I should see result as "<result>"
@@ -34,7 +34,7 @@ Feature: Tests for home screen functionality
               And I press on favorite conversions
              Then I verify "Length" added to favorite conversions list
 
-        
+        @wip
         Scenario: User able to search by existing conversion type
              When I press on search icon
               And I type "Temperature" in search field
@@ -51,11 +51,11 @@ Feature: Tests for home screen functionality
 
         Examples:
                   | unit_type | amount | result  |
-                  | Inch1      | 1      | 2.54    |
-                  | Link1      | 1      | 20.1168 |
-                  | Kilometer1 | 1      | 100 000 |
+                  | Inch      | 1      | 2.54    |
+                  | Link      | 1      | 20.1168 |
+                  | Kilometer | 1      | 100 000 |
 
-        
+
         Scenario: User able to convert values
              When I press on Menu icon
               And I select "Volume" from menu
@@ -71,7 +71,7 @@ Feature: Tests for home screen functionality
           Then Left unit picker value should be "Centimeter"
           And right unit picker value should be "Foot"
 
-        @wip
+
         Scenario: User able to cleanup conversion history
           When I press on Menu icon
           And I select "History" from menu

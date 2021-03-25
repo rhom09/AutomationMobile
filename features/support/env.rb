@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'appium_lib'
+require 'pry'
 require 'selenium-webdriver'
 require 'appium_console'
 require 'appium_lib_core'
