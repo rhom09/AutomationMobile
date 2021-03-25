@@ -1,4 +1,4 @@
-report.html
-screenshots
-.vscode
-.idea
+/report.html/
+/screenshots/
+/.vscode/
+/.idea/
